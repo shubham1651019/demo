@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body onload="captcha()">
+            <form>
+          
+        <input type="button" id="cap" style="background-color: red;color:white;margin-right: 10px;">
+        <input type="text" id="checkcap"><span id="msg4"></span>
+
+        <input type="button" id="submit" value="Login">
+    </form>
+    <script>
+        function captcha(){
+            var a=Math.floor(Math.random()*10);  //0 to 9
+            var b=Math.floor(Math.random()*10);  
+            var c=Math.floor(Math.random()*10);  
+            var d=Math.floor(Math.random()*10);  
+            var num=a+' '+b+' '+c+' '+d
+            document.getElementById("cap").value=num
+        }
+        document.getElementById("checkcap").onblur=function()
+        {
+            var captcha=removespaces(document.getElementById("cap").value);
+            var captcha1=removespaces(this.value); 
+            if(captcha1.length==0 || captcha1 !=captcha){
+                document.getElementById("msg4").innerHTML="Invalid Captcha"
+                document.getElementById("msg4").style.color="red"
+        }
+            else
+            document.getElementById("msg4").innerHTML=''
+
+        }
+        function removespaces(str)
+        {
+            return str.split(' ').join('');
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Time Interval</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body bgcolor="white">     
+        <script>  
+        colors = new Array("red","orange","green","blue","brown","purple","gray","white")
+   
+        colorIndex = 0
+        
+        function changeColor() {
+         document.bgColor = colors[colorIndex]
+         colorIndex = (colorIndex + 1) % colors.length
+        }
+        
+        function startColorChange() {
+         setInterval("changeColor()",5000)
+        }
+         window.onload = startColorChange
+    </script>
+</body>
+</html>

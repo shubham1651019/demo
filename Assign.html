@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <!-- <form>
+          
+        <input type="button"  style="background-color: red;color:white;margin-right: 10px;">
+        <input type="text" ><span id="msg4"></span>
+
+        <input type="button" id="submit" value="Login">
+    </form>
+    <script>
+   
+
+function Captcha() {
+    var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz';
+    var length = 6;
+
+          
+  if (!length) {
+    length = Math.floor(Math.random() * chars.length);
+  }
+  
+  for (var i = 0; i < length; i++) {
+    str += chars[Math.floor(Math.random() * chars.length)];
+  }
+}
+Captcha();
+function removespaces(str)
+        {
+            return str.split(' ').join('');
+        }
+</script> -->
+
+<form>
+          
+    <input type="button" id="cap" style="background-color: red;color:white;margin-right: 10px;">
+    <input type="text" id="checkcap"><span id="msg4"></span>
+
+    <input type="button" id="submit" value="Login">
+</form>
+
+<script>
+function ctype_alnum(str) {
+  var code, i, len;
+    var isNumeric = false, isAlpha = false; //I assume that it is all non-alphanumeric
+
+    
+loop1:
+  for (i = 0, len = str.length; i < len; i++) {
+    code = str.charCodeAt(i);
+        
+        
+        switch (true){
+            case code > 47 && code < 58: // check if 0-9
+                isNumeric = true;
+                break;
+            case (code > 64 && code < 91) || (code > 96 && code < 123): //check if A-Z or a-z
+                isAlpha = true;
+                break;
+            default: // not 0-9, not A-Z or a-z
+                return false; //stop function with false result, no more checks
+                
+        }
+
+  }
+    
+  return isNumeric && isAlpha; //return the loop results, if both are true, the string is certainly alphanumeric
+};
+
+$("#input").on("keyup", function(){
+
+if ($(this).val().length === 0) {$("#results").html(""); return false};
+var isAlphaNumeric = ctype_alnum ($(this).val());
+    $("#results").html(
+        (isAlphaNumeric) ? 'Yes' : 'No'
+        )
+        
+})
+</script>
+
+    
+</body>
+</html>
